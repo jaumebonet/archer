@@ -1,9 +1,9 @@
 import os, collections
 
-from SBI                       import SBIglobals
-from SBI.src.structure         import PDB
-from SBI.src.beans             import Path, File
-from SBI.src.structure.protein import Arch
+from SBI                   import SBIglobals
+from SBI.structure         import PDB
+from SBI.beans             import Path, File
+from SBI.structure.protein import Arch
 
 def build_archs(sourcepdb, 
                 chain_select        = None, 

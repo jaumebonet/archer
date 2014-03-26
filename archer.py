@@ -10,6 +10,7 @@ def build_archs(sourcepdb,
                 limit_internal_ss   = 100, 
                 limit_distance      = False, 
                 allowed_gaps        = 0, 
+                clean_dssp_files    = True,
                 workdir             = os.getcwd()):
 
     newpdb = PDB(sourcepdb, dehydrate = True)
@@ -22,7 +23,8 @@ def build_archs(sourcepdb,
         if working_chain.chain not in chain_select: continue
 
         working_chain.calculate_dssp(os.path.join(workdir, 'tmppdb.' + working_chain.globalID), 
-                                     os.path.join(workdir, 'tmpdssp.' + working_chain.globalID))
+                                     os.path.join(workdir, 'tmpdssp.' + working_chain.globalID),
+                                     clean_dssp_files)
 
         working_chain.calculate_archs(limit_internal_ss = limit_internal_ss, 
                                       limit_distance    = limit_distance, 
